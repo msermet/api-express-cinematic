@@ -100,9 +100,18 @@
                                         <p><strong><i class="fas fa-calendar-alt me-2"></i>Date de sortie:</strong> <?php echo date('d/m/Y', strtotime($film['date_sortie'])); ?></p>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-8"></div>
+                                    <div class="col-4">
+                                        <a href="seances.php?id=<?= $film_id ?>" class="btn btn-primary">Voir les séances disponibles</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
         <?php
                 } else {
                     echo '<div class="alert alert-warning" role="alert">';
