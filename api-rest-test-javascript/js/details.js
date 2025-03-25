@@ -30,7 +30,7 @@ function extractYear(dateString) {
 async function loadFilmDetails() {
     const filmDetailsContainer = document.getElementById('film-details-container');
     const filmId = getUrlParameter('id');
-    
+
     // Si aucun ID n'est fourni, afficher un message d'erreur
     if (!filmId) {
         filmDetailsContainer.innerHTML = `
@@ -41,23 +41,23 @@ async function loadFilmDetails() {
         `;
         return;
     }
-    
+
     try {
         // Appel à l'API pour récupérer les détails du film
         const response = await fetch(`${API_BASE_URL}/films/${filmId}`);
-        
+
         // Si la réponse n'est pas OK, lancer une erreur
         if (!response.ok) {
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
-        
+
         // Convertir la réponse en JSON
         const data = await response.json();
-        
+
         // Vérifier si le film existe
         if (data.status === 'success' && data.data) {
             const film = data.data;
-            
+
             // Créer le contenu HTML pour afficher les détails du film
             filmDetailsContainer.innerHTML = `
                 <div class="mb-4">
@@ -94,6 +94,13 @@ async function loadFilmDetails() {
                                     <p><strong><i class="fas fa-calendar-alt me-2"></i>Date de sortie:</strong> ${formatDate(film.date_sortie)}</p>
                                 </div>
                             </div>
+
+                            <div class="row mt-4">
+                                <div class="col-8"></div>
+                                <div class="col-4">
+                                    <a href="seances.html?id=${filmId}" class="btn btn-primary">Voir les séances disponibles</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,10 +121,9 @@ async function loadFilmDetails() {
             <div class="alert alert-danger" role="alert">
                 Erreur: Impossible de se connecter à l'API.
             </div>
-            <a href="index.html" class="btn btn-primary">Retour à la liste des films</a>
         `;
     }
 }
 
 // Charger les détails du film au chargement de la page
-document.addEventListener('DOMContentLoaded', loadFilmDetails); 
+document.addEventListener('DOMContentLoaded', loadFilmDetails);
