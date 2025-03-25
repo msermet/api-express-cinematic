@@ -85,9 +85,28 @@
                         <div class="film-info">
                             <h1 class="mb-4"><?php echo htmlspecialchars($film['titre']); ?></h1>
                             <table class="table table-striped">
-                                <?php foreach ($seances as $seance) {
-                                    echo htmlspecialchars($seance['places_disponibles']);
-                                } ?>
+                                <thead>
+                                <tr>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Heure
+                                    </th>
+                                    <th>
+                                        Places disponibles
+                                    </th>
+                                </tr>
+                                </thead>
+                                <?php foreach ($seances as $seance) : ?>
+                                    <tbody>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($seance['date']);?></td>
+                                        <td><?php echo htmlspecialchars($seance['heure']);?></td>
+                                        <td><?php echo htmlspecialchars($seance['places_disponibles']);?></td>
+                                    </tr>
+                                    </tbody>
+                                <?php endforeach; ?>
                             </table>
                         </div>
                     </div>
