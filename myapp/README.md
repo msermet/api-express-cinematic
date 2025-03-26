@@ -21,7 +21,7 @@ Une base de données MySQL nommée `db_cinematic` a été préparée avec les ta
 
 Le script de création de la base de données (`schema.sql`) est fourni à la racine du projet.
 
-### Démarrage de l'API REST
+## Démarrage de l'API REST
 
 L'API REST se situe dans le dossier myapp.
 db.js contient les informations de connexion à la base de données.
@@ -34,7 +34,21 @@ node app.js
 
 L'API REST sera accessible à l'adresse suivante : [http://localhost:3000](http://localhost:3000)
 
-### Lancement des applications web de test
+## Endpoints de l'API REST
+
+### 1. Liste des films
+
+**Endpoint :** `GET /api/films`
+
+### 2. Détails d'un film
+
+**Endpoint :** `GET /api/films/:id`
+
+### 3. Liste des séances d'un film
+
+**Endpoint :** `GET /api/films/:id/seances`
+
+## Lancement des applications web de test
 
 Deux applications web de test sont disponibles dans le dossier `Projets API Rest version Etudiant` :
 - `api-rest-test`
